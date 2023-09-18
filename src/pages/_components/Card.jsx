@@ -63,7 +63,7 @@ export default function Card({
         <footer className="flex justify-between">
           <div className="flex flex-col">
             <p className="text-xs">CARDHOLDER NAME</p>
-            <p className="font-semibold">{name}</p>
+            <p className="font-semibold">{name.toUpperCase()}</p>
           </div>
           <div className="flex flex-col">
             <p>VALID THRU</p>

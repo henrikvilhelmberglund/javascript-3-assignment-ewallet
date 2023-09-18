@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import store from "/src/redux/configureStore";
 
 import "virtual:uno.css";
+import "@unocss/reset/tailwind.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -26,7 +26,7 @@ export default function Index() {
           ))}
         </div>
       </section>
-      <div className="mt-12">
+      <div className="mt-4">
         <Link to="/addcard" className="btn-green">
           Add new card
         </Link>

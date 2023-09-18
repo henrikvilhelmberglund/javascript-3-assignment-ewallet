@@ -1,8 +1,10 @@
-import { defineConfig, presetWind } from "unocss";
+import { defineConfig, presetUno } from "unocss";
 
 export default defineConfig({
   // ...UnoCSS options
-  presets: presetWind({
-    dark: "class",
-  }),
+  presets: [
+    presetUno({
+      dark: "class",
+    }),
+  ],
 });

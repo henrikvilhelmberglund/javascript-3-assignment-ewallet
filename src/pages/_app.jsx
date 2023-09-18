@@ -1,11 +1,26 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <>
-      <main className="w-screen h-screen flex flex-col items-center md:mt-32 bg-gradient-to-b from-white to-sky-200 dark:bg-sky-900">
-        <Outlet />
-      </main>
+      <div className="w-screen h-screen bg-gradient-to-b from-white to-sky-200 dark:bg-sky-900">
+        <header>
+          <nav className="flex flex justify-center gap-12 items-center bg-slate-100 py-2">
+            <Link className="nav-button" to="/">
+              Home
+            </Link>
+            <Link className="nav-button" to="/cards">
+              Cards
+            </Link>
+          </nav>
+        </header>
+        <main className="flex flex-col items-center md:mt-32">
+          <Outlet />
+        </main>
+        <footer className="absolute bottom-2 right-2">
+          Copyright ©2023 Ankwallet
+        </footer>
+      </div>
     </>
   );
 }

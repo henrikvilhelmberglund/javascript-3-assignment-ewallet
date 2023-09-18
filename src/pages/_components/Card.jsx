@@ -4,7 +4,7 @@ export default function Card({ name, number, validThru, vendor, ccv }) {
   );
   return (
     <>
-      <article className="bg-amber-400 w-[400px] h-[240px] rounded-xl flex flex-col p-4 justify-between">
+      <article className="bg-amber-400 w-[440px] h-[270px] rounded-xl flex flex-col p-4 justify-between">
         <header className="flex h-[40%]  justify-between ">
           <div className="flex flex-col items-center justify-center gap-1">
             <div className="i-lucide-nfc -rotate-90 text-3xl text-amber-800"></div>
@@ -14,7 +14,7 @@ export default function Card({ name, number, validThru, vendor, ccv }) {
             <p>Icon 3</p>
           </div>
         </header>
-        <section className="flex justify-center gap-10 text-3xl pb-8">
+        <section className="flex justify-center gap-10 justify-between text-3xl pb-8">
           {cardParts.map((part) => (
             <p>{part}</p>
           ))}

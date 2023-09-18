@@ -21,7 +21,7 @@ Applikationen ska ha två routes (du får ändra namnet på dessa om du vill):
 
   ☐ Det ska finnas en Add new card -knapp, som routar användaren vidare till /addcard.
 
-  ☐  (VG) Högst upp ska du visa ett aktivt kort. Övriga kort ska vara inaktiva.
+  ☐ (VG) Högst upp ska du visa ett aktivt kort. Övriga kort ska vara inaktiva.
 
   ☐ (VG) Vid klick på ett inaktivt kort i listan så ska den läggas som active card högst upp i vyn.
 
@@ -46,7 +46,7 @@ För att få Godkänt ska du:
   ☐ Användaren ska kunna ha upp till max 4 kort, och måste alltid minst ha ett kort i sin e-wallet.
 
 För att få Väl Godkänt ska du:
-  
+
   ☐ Använda Redux
 
   ☐ Ha funktionalitet för ha aktivt kort.

@@ -1,5 +1,6 @@
 import { defineConfig, presetUno } from "unocss";
 import presetIcons from "@unocss/preset-icons";
+import { presetWebFonts } from "unocss";
 
 export default defineConfig({
   // ...UnoCSS options
@@ -8,6 +9,19 @@ export default defineConfig({
       dark: "class",
     }),
     presetIcons(),
+    presetWebFonts({
+      fonts: {
+        lobster: "Lobster",
+        FishCard: "Monoton",
+        DuckCard: "Berkshire Swash",
+        SvelteCard: "Overpass",
+      },
+    }),
+  ],
+  safelist: [
+    "font-FishCard font-DuckCard font-SvelteCard left-0",
+    ...Array.from({ length: 100 }, (_, i) => `top-[${i}px]`),
+    ...Array.from({ length: 16 }, (_, i) => `zr-${i}`),
   ],
   shortcuts: [
     {

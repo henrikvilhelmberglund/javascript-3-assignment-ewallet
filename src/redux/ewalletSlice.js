@@ -17,7 +17,7 @@ const ewalletSlice = createSlice({
         validThru: "12/22",
         vendor: "SvelteCard",
         ccv: 376,
-        active: true,
+        active: false,
       },
       {
         name: "Darkwing Duck",
@@ -41,7 +41,14 @@ const ewalletSlice = createSlice({
   reducers: {
     setActiveCard: (state, action) => {
       console.log(action);
-      state.activeCard += action.payload;
+      const { i, newState } = action.payload;
+      state.cards[i].active = newState;
+    },
+    setAllCardsToInactive: (state, action) => {
+      console.log(action);
+      state.cards.forEach((card) => {
+        card.active = false;
+      });
     },
   },
   extraReducers: (builder) => {
@@ -59,5 +66,5 @@ const ewalletSlice = createSlice({
   },
 });
 
-export const { increment } = ewalletSlice.actions;
+export const { setActiveCard, setAllCardsToInactive } = ewalletSlice.actions;
 export default ewalletSlice.reducer;

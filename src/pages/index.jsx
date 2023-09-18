@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from "../redux/ewalletSlice";
 import { Link } from "react-router-dom";
 
 export default function Index() {
-  const dispatch = useDispatch();
-  const { count } = useSelector((store) => store.ewallet);
   return (
     <>
       <h1 className="text-4xl">E-Wallet</h1>

@@ -1,7 +1,7 @@
 export default function Index() {
   return (
     <>
-      <p>hi I am index</p>
+      <p className="text-4xl">hi I am index</p>
     </>
   );
 }

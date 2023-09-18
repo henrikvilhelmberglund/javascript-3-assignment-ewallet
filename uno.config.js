@@ -1,6 +1,7 @@
 import { defineConfig, presetUno } from "unocss";
 import presetIcons from "@unocss/preset-icons";
 import { presetWebFonts } from "unocss";
+import { presetForms } from "@julr/unocss-preset-forms";
 
 export default defineConfig({
   // ...UnoCSS options
@@ -17,6 +18,7 @@ export default defineConfig({
         SvelteCard: "Overpass",
       },
     }),
+    presetForms(),
   ],
   safelist: [
     "font-FishCard font-DuckCard font-SvelteCard left-0",

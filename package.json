@@ -21,6 +21,7 @@
     "@iconify-json/flat-color-icons": "^1.1.7",
     "@iconify-json/lucide": "^1.1.128",
     "@iconify-json/noto": "^1.1.12",
+    "@julr/unocss-preset-forms": "^0.0.5",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",

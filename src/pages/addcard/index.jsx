@@ -1,27 +1,50 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { createCard } from "../../redux/ewalletSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Card from "../_components/Card";
 
 export default function Index() {
   const { firstName, lastName } = useOutletContext();
+  const { cardPreview } = useSelector((store) => store.ewallet);
+
+  console.log(cardPreview);
+  const dispatch = useDispatch();
   const [error, setError] = useState("");
+
   return (
     <>
       <h1 className="text-5xl">Add card</h1>
+      <Card {...cardPreview} allCards={false} />
 
       <form
+        onChange={(e) => {
+          console.log(e);
+        }}
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(document.querySelector("#name").value);
           const number1 = document.querySelector("#number-1").value;
           const number2 = document.querySelector("#number-2").value;
           const number3 = document.querySelector("#number-3").value;
           const number4 = document.querySelector("#number-4").value;
+          const vendor = document.querySelector("#vendor").value;
+          const ccv = document.querySelector("#ccv").value;
+          const month = document.querySelector("#month").value;
+          const year = document.querySelector("#year").value;
+          const validThru = `${month}/${year}`;
           const number = number1 + number2 + number3 + number4;
-          console.log(number);
-          console.log(document.querySelector("#vendor").value);
-          console.log(document.querySelector("#month").value);
-          console.log(document.querySelector("#year").value);
-          console.log(document.querySelector("#ccv").value);
+          const active = false;
+          dispatch(
+            createCard({
+              number,
+              firstName,
+              lastName,
+              vendor,
+              validThru,
+              ccv,
+              active,
+            })
+          );
         }}
         className="mt-12 p-4 bg-white rounded-md flex flex-col gap-3"
         action="">

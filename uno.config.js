@@ -22,8 +22,8 @@ export default defineConfig({
   ],
   safelist: [
     "font-FishCard font-DuckCard font-SvelteCard left-0",
-    ...Array.from({ length: 100 }, (_, i) => `top-[${i}px]`),
-    ...Array.from({ length: 16 }, (_, i) => `zr-${i}`),
+    ...Array.from({ length: 300 }, (_, i) => `top-[${i}px]`),
+    ...Array.from({ length: 32 }, (_, i) => `zr-${i}`),
   ],
   shortcuts: [
     {

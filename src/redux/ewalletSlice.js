@@ -12,25 +12,11 @@ const ewalletSlice = createSlice({
   initialState: {
     cards: [
       {
-        number: "1234567891011123",
-        validThru: "12/22",
-        vendor: "SvelteCard",
-        ccv: 376,
-        active: false,
-      },
-      {
         number: "6666567891011123",
         validThru: "10/22",
         vendor: "DuckCard",
         ccv: 176,
-        active: false,
-      },
-      {
-        number: "1111567891011123",
-        validThru: "7/22",
-        vendor: "FishCard",
-        ccv: 776,
-        active: false,
+        active: true,
       },
     ],
     activeCard: null,
@@ -40,7 +26,7 @@ const ewalletSlice = createSlice({
       vendor: "DuckCard",
       ccv: 776,
       active: true,
-    }
+    },
   },
   reducers: {
     setActiveCard: (state, action) => {
@@ -60,7 +46,7 @@ const ewalletSlice = createSlice({
     },
     updateCardPreview: (state, action) => {
       state.cardPreview = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -77,6 +63,10 @@ const ewalletSlice = createSlice({
   },
 });
 
-export const { setActiveCard, setAllCardsToInactive, createCard, updateCardPreview } =
-  ewalletSlice.actions;
+export const {
+  setActiveCard,
+  setAllCardsToInactive,
+  createCard,
+  updateCardPreview,
+} = ewalletSlice.actions;
 export default ewalletSlice.reducer;

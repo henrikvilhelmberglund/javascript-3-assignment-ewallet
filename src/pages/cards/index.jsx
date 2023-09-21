@@ -1,9 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Card from "../_components/Card";
+import { deleteCard } from "../../redux/ewalletSlice";
+import React from "react";
 export default function Index() {
   const { cards } = useSelector((store) => store.ewallet);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -21,13 +24,22 @@ export default function Index() {
         <p>Inactive cards:</p>
 
         {/* TODO fix this jank */}
-        <div className="relative h-[400px] top-0 -left-55">
+        <div className="relative h-[400px] -top-4 -left-55">
           {cards.map((card, i) => (
-            <Card {...card} allCards={true} i={i} key={i}></Card>
+            <article className="relative" key={i}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(deleteCard(i));
+                }}
+                className={`${card.active === true ? "hidden" : ""}
+                } i-lucide-x absolute top-[${i*40-10}px] z-100 -left-8 w-16 h-16 bg-red-500`}></button>
+              <Card {...card} allCards={true} i={i} key={i}></Card>
+            </article>
           ))}
         </div>
       </section>
-      <div className="mt-4">
+      <div className="mt-14">
         <Link to="/addcard" className="btn-green">
           Add new card
         </Link>

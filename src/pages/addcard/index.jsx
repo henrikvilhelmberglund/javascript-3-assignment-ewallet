@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { createCard, updateCardPreview } from "../../redux/ewalletSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../_components/Card";
@@ -9,7 +9,9 @@ export default function Index() {
   const { cardPreview } = useSelector((store) => store.ewallet);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   return (
     <>
@@ -55,6 +57,7 @@ export default function Index() {
           const validThru = `${month}/${year}`;
           const number = number1 + number2 + number3 + number4;
           const active = false;
+
           dispatch(
             createCard({
               number,
@@ -66,6 +69,11 @@ export default function Index() {
               active,
             })
           );
+          setMessage("Success! Navigating to cards...");
+          setTimeout(() => {
+            setMessage("");
+            navigate("/cards");
+          }, 1500);
         }}
         className="mt-12 p-4 bg-white rounded-md flex flex-col gap-3"
         action="">
@@ -152,6 +160,11 @@ export default function Index() {
         />
         <div className="mt-8"></div>
         <button className="btn-blue">Submit</button>
+        {message ? (
+          <p className="absolute top-[97%] text-5xl text-white  text-center mx-auto bg-green-500 rounded-lg p-2">
+            {message}
+          </p>
+        ) : null}
       </form>
     </>
   );

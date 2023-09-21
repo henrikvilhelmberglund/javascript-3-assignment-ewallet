@@ -12,7 +12,8 @@ const ewalletSlice = createSlice({
   initialState: {
     cards: [
       {
-        name: "Christoffer Wallenberg",
+        firstName: "Christoffer",
+        lastName: "Wallenberg",
         number: 1234567891011123,
         validThru: "12/22",
         vendor: "SvelteCard",
@@ -20,7 +21,8 @@ const ewalletSlice = createSlice({
         active: false,
       },
       {
-        name: "Darkwing Duck",
+        firstName: "Darkwing",
+        lastName: "Duck",
         number: 6666567891011123,
         validThru: "10/22",
         vendor: "DuckCard",
@@ -28,7 +30,8 @@ const ewalletSlice = createSlice({
         active: false,
       },
       {
-        name: "Fishy Fish",
+        firstName: "Fishy",
+        lastName: "Fish",
         number: 1111567891011123,
         validThru: "7/22",
         vendor: "FishCard",

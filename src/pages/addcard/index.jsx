@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+
 export default function Index() {
+  const { firstName, lastName } = useOutletContext();
+  const [error, setError] = useState("");
   return (
     <>
       <h1 className="text-5xl">Add card</h1>
@@ -20,36 +25,59 @@ export default function Index() {
         }}
         className="mt-12 p-4 bg-white rounded-md flex flex-col gap-3"
         action="">
-        <div className="flex gap-1">
+        <div className="flex gap-1 relative">
+          <p className="absolute -top-7 text-red-500 left-0">{error}</p>
           {Array.from({ length: 4 }).map((_, i) => (
-            <input
-              key={i}
-              onChange={(e) => {
-                if (i === 3) return;
-                if (e.target.value.length === 4) {
-                  document.querySelector(`#number-${i + 2}`).focus();
-                }
-              }}
-              className="p-2 rounded w-[4rem] text-center"
-              required
-              type="text"
-              placeholder="0000"
-              minLength="4"
-              maxLength="4"
-              name="number"
-              id={`number-${i + 1}`}
-            />
+            <>
+              <input
+                key={i}
+                onChange={(e) => {
+                  let inputAcceptable = /^\d+$/.test(e.target.value);
+
+                  if (!inputAcceptable && e.target.value) {
+                    e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
+                    setError("Only numbers are allowed.");
+                    // alert("Only numbers are valid");
+                    return;
+                  } else if (inputAcceptable) {
+                    setError("");
+                  }
+                  if (i === 3) return;
+                  if (e.target.value.length === 4) {
+                    document.querySelector(`#number-${i + 2}`).focus();
+                  }
+                }}
+                className="p-2 rounded w-[4rem] text-center"
+                required
+                type="text"
+                placeholder="0000"
+                minLength="4"
+                maxLength="4"
+                name="number"
+                id={`number-${i + 1}`}
+              />
+            </>
           ))}
         </div>
 
-        <input
-          className="p-2 rounded bg-slate-300"
-          disabled
-          type="text"
-          name="name"
-          id="name"
-          value="First name Last name"
-        />
+        <div className="gap-2 flex">
+          <input
+            className="p-2 w-32 rounded bg-slate-300"
+            disabled
+            type="text"
+            name="firstName"
+            id="firstName"
+            value={firstName}
+          />
+          <input
+            className="p-2 w-32 flex-1 rounded bg-slate-300"
+            disabled
+            type="text"
+            name="lastName"
+            id="lastName"
+            value={lastName}
+          />
+        </div>
         <select className="p-2" id="vendor" name="vendor">
           <option value="DuckCard">DuckCard</option>
           <option value="FishCard">FishCard</option>

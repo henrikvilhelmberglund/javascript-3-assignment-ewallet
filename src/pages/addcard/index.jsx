@@ -28,35 +28,33 @@ export default function Index() {
         <div className="flex gap-1 relative">
           <p className="absolute -top-7 text-red-500 left-0">{error}</p>
           {Array.from({ length: 4 }).map((_, i) => (
-            <>
-              <input
-                key={i}
-                onChange={(e) => {
-                  let inputAcceptable = /^\d+$/.test(e.target.value);
+            <input
+              key={i}
+              onChange={(e) => {
+                let inputAcceptable = /^\d+$/.test(e.target.value);
 
-                  if (!inputAcceptable && e.target.value) {
-                    e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
-                    setError("Only numbers are allowed.");
-                    // alert("Only numbers are valid");
-                    return;
-                  } else if (inputAcceptable) {
-                    setError("");
-                  }
-                  if (i === 3) return;
-                  if (e.target.value.length === 4) {
-                    document.querySelector(`#number-${i + 2}`).focus();
-                  }
-                }}
-                className="p-2 rounded w-[4rem] text-center"
-                required
-                type="text"
-                placeholder="0000"
-                minLength="4"
-                maxLength="4"
-                name="number"
-                id={`number-${i + 1}`}
-              />
-            </>
+                if (!inputAcceptable && e.target.value) {
+                  e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
+                  setError("Only numbers are allowed.");
+                  // alert("Only numbers are valid");
+                  return;
+                } else if (inputAcceptable) {
+                  setError("");
+                }
+                if (i === 3) return;
+                if (e.target.value.length === 4) {
+                  document.querySelector(`#number-${i + 2}`).focus();
+                }
+              }}
+              className="p-2 rounded w-[4rem] text-center"
+              required
+              type="text"
+              placeholder="0000"
+              minLength="4"
+              maxLength="4"
+              name="number"
+              id={`number-${i + 1}`}
+            />
           ))}
         </div>
 

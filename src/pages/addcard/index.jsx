@@ -18,6 +18,7 @@ export default function Index() {
 
       <form
         onChange={(e) => {
+          // TODO DRY
           const number1 = document.querySelector("#number-1").value;
           const number2 = document.querySelector("#number-2").value;
           const number3 = document.querySelector("#number-3").value;

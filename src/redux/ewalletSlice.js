@@ -12,27 +12,21 @@ const ewalletSlice = createSlice({
   initialState: {
     cards: [
       {
-        firstName: "Christoffer",
-        lastName: "Wallenberg",
-        number: 1234567891011123,
+        number: "1234567891011123",
         validThru: "12/22",
         vendor: "SvelteCard",
         ccv: 376,
         active: false,
       },
       {
-        firstName: "Darkwing",
-        lastName: "Duck",
-        number: 6666567891011123,
+        number: "6666567891011123",
         validThru: "10/22",
         vendor: "DuckCard",
         ccv: 176,
         active: false,
       },
       {
-        firstName: "Fishy",
-        lastName: "Fish",
-        number: 1111567891011123,
+        number: "1111567891011123",
         validThru: "7/22",
         vendor: "FishCard",
         ccv: 776,
@@ -40,6 +34,13 @@ const ewalletSlice = createSlice({
       },
     ],
     activeCard: null,
+    cardPreview: {
+      number: "0000000000000000",
+      validThru: "1/2024",
+      vendor: "DuckCard",
+      ccv: 776,
+      active: true,
+    }
   },
   reducers: {
     setActiveCard: (state, action) => {
@@ -52,6 +53,12 @@ const ewalletSlice = createSlice({
       state.cards.forEach((card) => {
         card.active = false;
       });
+    },
+    createCard: (state, action) => {
+      const newCard = action.payload;
+      console.log(newCard);
+
+      state.cards.push(newCard);
     },
   },
   extraReducers: (builder) => {
@@ -69,5 +76,6 @@ const ewalletSlice = createSlice({
   },
 });
 
-export const { setActiveCard, setAllCardsToInactive } = ewalletSlice.actions;
+export const { setActiveCard, setAllCardsToInactive, createCard } =
+  ewalletSlice.actions;
 export default ewalletSlice.reducer;

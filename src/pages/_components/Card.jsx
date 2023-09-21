@@ -9,7 +9,7 @@ export default function Card({
   ccv,
   i,
   active,
-  allCards
+  allCards,
 }) {
   const dispatch = useDispatch();
   const { firstName, lastName } = useOutletContext();
@@ -19,7 +19,7 @@ export default function Card({
   let cardStyle;
   let iconStyle;
   // TODO this seems a bit stupid
-  let shouldBeHidden = active && allCards ? "!hidden": "" 
+  let shouldBeHidden = active && allCards ? "!hidden" : "";
   if (vendor === "DuckCard") {
     cardStyle =
       "from-green-400 to-green-700 bg-gradient-to-rb w-[440px] h-[270px] rounded-xl flex flex-col p-4 justify-between shadow-md shadow-green-800";
@@ -56,7 +56,7 @@ export default function Card({
             </div>
           </div>
         </header>
-        <section className="flex justify-center gap-10 justify-between text-3xl pb-8">
+        <section className="flex justify-center gap-5  text-3xl pb-4">
           {cardParts.map((part, i) => (
             <p key={i}>{part}</p>
           ))}
@@ -64,8 +64,10 @@ export default function Card({
         <footer className="flex justify-between">
           <div className="flex flex-col">
             <p className="text-xs">CARDHOLDER NAME</p>
-            <p className="font-semibold">{firstName.toUpperCase()}</p>
-            <p className="font-semibold">{lastName.toUpperCase()}</p>
+            <div className="flex gap-2">
+              <p className="font-semibold">{firstName.toUpperCase()}</p>
+              <p className="font-semibold">{lastName.toUpperCase()}</p>
+            </div>
           </div>
           <div className="flex flex-col">
             <p>VALID THRU</p>

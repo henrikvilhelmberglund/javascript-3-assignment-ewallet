@@ -1,9 +1,8 @@
 import { useDispatch } from "react-redux";
 import { setActiveCard, setAllCardsToInactive } from "../../redux/ewalletSlice";
+import { useOutletContext } from "react-router-dom";
 
 export default function Card({
-  firstName,
-  lastName,
   number,
   validThru,
   vendor,
@@ -13,6 +12,7 @@ export default function Card({
   allCards
 }) {
   const dispatch = useDispatch();
+  const { firstName, lastName } = useOutletContext();
   const cardParts = Array.from({ length: 4 }, (_, index) =>
     number.toString().slice(index * 4, (index + 1) * 4)
   );

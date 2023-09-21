@@ -50,7 +50,7 @@ export default function Card({
       <article
         className={`${cardStyle} ${
           active === false ? `absolute top-[${i * 40}px] z-${i} left-0` : ""
-        } ${shouldBeHidden}`}>
+        } ${shouldBeHidden} `}>
         <header className="flex h-[40%]  justify-between ">
           <div className="flex flex-col items-center justify-center gap-1">
             <span className="i-lucide-nfc -rotate-90 text-3xl text-black/80"></span>

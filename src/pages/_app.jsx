@@ -1,4 +1,7 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { flushSync } from "react-dom";
+import { Link, Outlet, useLoaderData, useNavigate } from "react-router-dom";
+
+
 
 export default function Layout() {
   const data = useLoaderData();
@@ -21,7 +24,7 @@ export default function Layout() {
             </Link>
           </nav>
         </header>
-        <main className="flex flex-col items-center md:mt-10">
+        <main className="flex flex-col items-center min-h-screen md:mt-20 md:mb-40">
           <Outlet context={data} />
         </main>
         <footer className="fixed bottom-2 right-2">
@@ -35,7 +38,6 @@ export default function Layout() {
 export const Loader = async () => {
   const response = await fetch("https://randomuser.me/api/");
   const data = await response.json();
-  console.log(data);
   const { first: firstName, last: lastName } = data.results[0].name;
   return { firstName, lastName };
 };

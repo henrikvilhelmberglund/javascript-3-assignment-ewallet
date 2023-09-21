@@ -7,6 +7,7 @@ import Card from "../_components/Card";
 export default function Index() {
   const { firstName, lastName } = useOutletContext();
   const { cardPreview } = useSelector((store) => store.ewallet);
+  const { cards } = useSelector((store) => store.ewallet);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -57,6 +58,11 @@ export default function Index() {
           const validThru = `${month}/${year}`;
           const number = number1 + number2 + number3 + number4;
           const active = false;
+
+          if (cards.length > 3) {
+            setMessage("You have too many cards. Remove a card and try again.");
+            return;
+          }
 
           dispatch(
             createCard({

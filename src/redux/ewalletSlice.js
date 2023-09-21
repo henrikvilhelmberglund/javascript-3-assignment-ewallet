@@ -13,7 +13,7 @@ const ewalletSlice = createSlice({
     cards: [
       {
         number: "6666567891011123",
-        validThru: "10/22",
+        validThru: "10/2024",
         vendor: "DuckCard",
         ccv: 176,
         active: true,

@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
-import { setActiveCard, setAllCardsToInactive } from "../../redux/ewalletSlice";
+import {
+  deleteCard,
+  setActiveCard,
+  setAllCardsToInactive,
+} from "../../redux/ewalletSlice";
 import { useOutletContext } from "react-router-dom";
 
 export default function Card({
@@ -36,6 +40,7 @@ export default function Card({
   }
   return (
     <button
+      className="relative"
       onClick={() => {
         dispatch(setAllCardsToInactive());
         dispatch(setActiveCard({ i, newState: true }));
@@ -44,6 +49,15 @@ export default function Card({
         className={`${cardStyle} ${
           active === false ? `absolute top-[${i * 40}px] z-${i} left-0` : ""
         } ${shouldBeHidden}`}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            // console.log("clicked");
+            dispatch(deleteCard(i));
+          }}
+          className={` ${
+            active === false ? "" : "hidden"
+          } i-lucide-x absolute -top-8 -left-8 w-16 h-16 bg-red-500`}></button>
         <header className="flex h-[40%]  justify-between ">
           <div className="flex flex-col items-center justify-center gap-1">
             <span className="i-lucide-nfc -rotate-90 text-3xl text-black/80"></span>

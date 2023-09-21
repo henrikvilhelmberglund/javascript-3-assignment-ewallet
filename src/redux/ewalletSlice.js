@@ -47,6 +47,9 @@ const ewalletSlice = createSlice({
     updateCardPreview: (state, action) => {
       state.cardPreview = action.payload;
     },
+    deleteCard: (state, action) => {
+      state.cards.splice(action.payload, 1);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -68,5 +71,6 @@ export const {
   setAllCardsToInactive,
   createCard,
   updateCardPreview,
+  deleteCard,
 } = ewalletSlice.actions;
 export default ewalletSlice.reducer;

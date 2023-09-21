@@ -1,10 +1,8 @@
 import { useSelector } from "react-redux";
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Card from "../_components/Card";
 export default function Index() {
-  const data = useOutletContext();
-  console.log(data);
   const { cards } = useSelector((store) => store.ewallet);
 
   return (

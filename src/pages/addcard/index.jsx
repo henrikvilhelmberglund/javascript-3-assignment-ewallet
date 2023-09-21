@@ -80,7 +80,6 @@ export default function Index() {
                 if (!inputAcceptable && e.target.value) {
                   e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
                   setError("Only numbers are allowed.");
-                  // alert("Only numbers are valid");
                   return;
                 } else if (inputAcceptable) {
                   setError("");

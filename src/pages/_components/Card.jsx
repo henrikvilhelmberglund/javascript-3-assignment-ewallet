@@ -2,7 +2,8 @@ import { useDispatch } from "react-redux";
 import { setActiveCard, setAllCardsToInactive } from "../../redux/ewalletSlice";
 
 export default function Card({
-  name,
+  firstName,
+  lastName,
   number,
   validThru,
   vendor,
@@ -63,7 +64,8 @@ export default function Card({
         <footer className="flex justify-between">
           <div className="flex flex-col">
             <p className="text-xs">CARDHOLDER NAME</p>
-            <p className="font-semibold">{name.toUpperCase()}</p>
+            <p className="font-semibold">{firstName.toUpperCase()}</p>
+            <p className="font-semibold">{lastName.toUpperCase()}</p>
           </div>
           <div className="flex flex-col">
             <p>VALID THRU</p>

@@ -26,7 +26,7 @@ Applikationen ska ha två routes (du får ändra namnet på dessa om du vill):
   ✔ (VG) Vid klick på ett inaktivt kort i listan så ska den läggas som active card högst upp i vyn. @done(23-09-18 15:13)
 
   -- /addcard:
-  ☐ Ett nytt kort ska kunna läggas till med följande information: Vendor, card number, cardholder, expire month, expire year, CCV. (Se bild nedan).
+  ✔ Ett nytt kort ska kunna läggas till med följande information: Vendor, card number, cardholder, expire month, expire year, CCV. (Se bild nedan). @done(23-09-21 11:27)
 
   ✔ För kortutgivare ska du hårdkoda in minst tre alternativ man kan välja mellan. Namnet för vad kortutgivare ska stå på kortet (t.ex. Mastercard, Visa, American Express etc. Eller om ni vill hitta på något roligare!). @done(23-09-18 15:13)
 

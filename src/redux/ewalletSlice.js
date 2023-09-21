@@ -56,10 +56,11 @@ const ewalletSlice = createSlice({
     },
     createCard: (state, action) => {
       const newCard = action.payload;
-      console.log(newCard);
-
       state.cards.push(newCard);
     },
+    updateCardPreview: (state, action) => {
+      state.cardPreview = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -76,6 +77,6 @@ const ewalletSlice = createSlice({
   },
 });
 
-export const { setActiveCard, setAllCardsToInactive, createCard } =
+export const { setActiveCard, setAllCardsToInactive, createCard, updateCardPreview } =
   ewalletSlice.actions;
 export default ewalletSlice.reducer;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import { createCard } from "../../redux/ewalletSlice";
+import { createCard, updateCardPreview } from "../../redux/ewalletSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../_components/Card";
 
@@ -8,7 +8,6 @@ export default function Index() {
   const { firstName, lastName } = useOutletContext();
   const { cardPreview } = useSelector((store) => store.ewallet);
 
-  console.log(cardPreview);
   const dispatch = useDispatch();
   const [error, setError] = useState("");
 
@@ -19,7 +18,28 @@ export default function Index() {
 
       <form
         onChange={(e) => {
-          console.log(e);
+          const number1 = document.querySelector("#number-1").value;
+          const number2 = document.querySelector("#number-2").value;
+          const number3 = document.querySelector("#number-3").value;
+          const number4 = document.querySelector("#number-4").value;
+          const vendor = document.querySelector("#vendor").value;
+          const ccv = document.querySelector("#ccv").value;
+          const month = document.querySelector("#month").value;
+          const year = document.querySelector("#year").value;
+          const validThru = `${month}/${year}`;
+          const number = number1 + number2 + number3 + number4;
+          const active = true;
+          dispatch(
+            updateCardPreview({
+              number,
+              firstName,
+              lastName,
+              vendor,
+              validThru,
+              ccv,
+              active,
+            })
+          );
         }}
         onSubmit={(e) => {
           e.preventDefault();

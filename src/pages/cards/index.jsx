@@ -23,7 +23,7 @@ export default function Index() {
         <p>Inactive cards:</p>
 
         {/* TODO fix this jank */}
-        <div className="relative h-[400px] top-0 left-0 translate-x-[-14vw]">
+        <div className="relative h-[400px] top-0 -left-55">
           {cards.map((card, i) => (
             <Card {...card} allCards={true} i={i} key={i}></Card>
           ))}

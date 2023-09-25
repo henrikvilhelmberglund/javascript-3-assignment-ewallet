@@ -22,6 +22,25 @@ export default function Index() {
             <Card {...card} allCards={false} i={i} key={i}></Card>
           ))}
 
+        <div className="">
+          {cards.length > 3 ? (
+            <div className="flex flex-col items-center gap-4">
+              <button disabled className="btn-red peer">
+                Add new card
+              </button>
+              <p className="text-lg hidden peer-hover:block">
+                You have too many cards. Please remove a card to add a new card.
+              </p>
+            </div>
+          ) : (
+              <div className="flex flex-col items-center gap-4">
+                
+            <Link to="/addcard" className="btn-green">
+              Add new card
+            </Link>
+              </div>
+          )}
+        </div>
         <p>Inactive cards:</p>
 
         {/* TODO fix this jank */}
@@ -42,11 +61,6 @@ export default function Index() {
           ))}
         </div>
       </section>
-      <div className="mt-14 relative top-72">
-        <Link to="/addcard" className="btn-green">
-          Add new card
-        </Link>
-      </div>
     </>
   );
 }

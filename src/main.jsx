@@ -16,13 +16,14 @@ import "@unocss/reset/tailwind.css";
 import Index from "./pages";
 import IndexCards from "./pages/cards";
 import IndexAddCard from "./pages/addcard";
-import Layout from "./pages/_app";
+import Layout, { Loader } from "./pages/_app";
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
-      <Route element={<Layout />} />
+    <Route loader={Loader} element={<Layout />}>
       <Route path="/" element={<Index />} />
-    </>
+      <Route path="/cards" element={<IndexCards />} />
+      <Route path="/addcard" element={<IndexAddCard />} />
+    </Route>
   )
 );
 

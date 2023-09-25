@@ -16,9 +16,14 @@ import "@unocss/reset/tailwind.css";
 import Index from "./pages";
 import IndexCards from "./pages/cards";
 import IndexAddCard from "./pages/addcard";
-
+import Layout from "./pages/_app";
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Index />} />)
+  createRoutesFromElements(
+    <>
+      <Route element={<Layout />} />
+      <Route path="/" element={<Index />} />
+    </>
+  )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(

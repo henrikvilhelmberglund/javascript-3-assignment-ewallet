@@ -19,7 +19,7 @@ import IndexAddCard from "./pages/addcard";
 import Layout, { Loader } from "./pages/_app";
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route loader={Loader} element={<Layout />}>
+    <Route loader={Loader} shouldRevalidate={() => false} element={<Layout />}>
       <Route path="/" element={<Index />} />
       <Route path="/cards" element={<IndexCards />} />
       <Route path="/addcard" element={<IndexAddCard />} />

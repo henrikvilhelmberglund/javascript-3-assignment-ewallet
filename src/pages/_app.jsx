@@ -2,7 +2,6 @@ import { flushSync } from "react-dom";
 import { Link, Outlet, useLoaderData, useNavigate } from "react-router-dom";
 
 
-
 export default function Layout() {
   const data = useLoaderData();
   return (
@@ -41,3 +40,8 @@ export const Loader = async () => {
   const { first: firstName, last: lastName } = data.results[0].name;
   return { firstName, lastName };
 };
+
+export const ShouldRevalidate = () => {
+  return false
+};
+

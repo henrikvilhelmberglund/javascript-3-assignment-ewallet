@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import { routes } from "generouted/react-router";
-import {Routes}  from "./customRoutes"
+import {Routes}  from "./routes"
 import { Provider } from "react-redux";
 import store from "/src/redux/configureStore";
 
